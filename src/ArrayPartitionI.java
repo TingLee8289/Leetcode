@@ -1,6 +1,5 @@
 // 2022/04/16 done
 
-
 import java.util.Arrays;
 
 public class ArrayPartitionI {
