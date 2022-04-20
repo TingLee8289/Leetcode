@@ -1,0 +1,13 @@
+2022/04/20 done
+Runtime: 1315 ms, faster than 34.89% of MySQL online submissions for Sales Person.
+Memory Usage: 0B, less than 100.00% of MySQL online submissions for Sales Person.
+
+
+# Write your MySQL query statement below
+SELECT name 
+FROM SalesPerson 
+WHERE sales_id not in (SELECT sales_id 
+FROM Orders o 
+JOIN  Company c 
+    on o.com_id = c.com_id 
+WHERE c.name = "RED")
