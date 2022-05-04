@@ -1,10 +1,13 @@
+// 2022/05/04 done
+// Runtime: 5 ms, faster than 28.13% of Java online submissions for Relative Sort Array.
+// Memory Usage: 42.4 MB, less than 67.48% of Java online submissions for Relative Sort Array.
+
+
 package leetcode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.TreeMap;
 
 public class UnSolved_RelativeSortArray {
 	public static void main(String[] args) {
@@ -20,14 +23,41 @@ public class UnSolved_RelativeSortArray {
 	}
 
 	public static int[] relativeSortArray(int[] arr1, int[] arr2) {
+
+		TreeMap<Integer, Integer> map = new TreeMap<>();
+		for (int elm : arr1) {
+			if (!map.containsKey(elm)) {
+				map.put(elm, 1);
+			} else {
+				map.put(elm, map.get(elm) + 1);
+			}
+		}
+
+		int[] resultArr = new int[arr1.length];
+		int count = 0;
+		for (int i = 0; i < arr2.length; i++) {
+			for (int j = 0; j < map.get(arr2[i]); j++) {
+				resultArr[count] = arr2[i];
+				count++;
+			}
+			map.remove(arr2[i]);
+		}
+
 		
-		return null;
 		
-		
-		
-		
-		
-		
+		// it.next() 需先將值存起來，不然值會跑掉!!!
+		Set<Integer> set = map.keySet();
+		Iterator<Integer> it = set.iterator();
+		while (it.hasNext()) {
+			int num = it.next();
+			int index = map.get(num);
+			for (int k = 0; k < index; k++) {
+				resultArr[count] = num;
+				count++;
+			}
+		}
+
+		return resultArr;
 
 //		Sol.2 ArrayList
 		// int[] -> List<Integer>???
