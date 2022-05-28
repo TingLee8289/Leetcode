@@ -11,8 +11,8 @@ public class FizzBuzz {
 
 	public static void main(String[] args) {
 		int n = 3;	// ["1","2","Fizz"]
-		int n = 5;	// ["1","2","Fizz","4","Buzz"]
-		int n = 15;	// ["1","2","Fizz","4","Buzz","Fizz","7","8","Fizz","Buzz","11","Fizz","13","14","FizzBuzz"]
+//		int n = 5;	// ["1","2","Fizz","4","Buzz"]
+//		int n = 15;	// ["1","2","Fizz","4","Buzz","Fizz","7","8","Fizz","Buzz","11","Fizz","13","14","FizzBuzz"]
 		System.out.println(fizzBuzz(n));
 
 	}
